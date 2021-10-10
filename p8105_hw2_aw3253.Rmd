@@ -28,6 +28,23 @@ trash_df =
 
 
 
+## Problem 1
+
+```{r}
+trash_df = 
+  read_excel("data/trash_wheel.xlsx", 
+      sheet = "Mr. Trash Wheel",
+      range = "A1:N535") %>% 
+
+janitor::clean_names()
+
+trash_df
+
+```
+
+
+
+
 
 # Section 1
 
