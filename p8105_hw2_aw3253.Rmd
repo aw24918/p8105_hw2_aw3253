@@ -34,11 +34,10 @@ trash_df =
 trash_df = 
   read_excel("data/trash_wheel.xlsx", 
       sheet = "Mr. Trash Wheel",
-      range = "A1:N535",
-      ) %>% 
+      range = "A2:N535",
+      col_names = TRUE) %>% 
   janitor::clean_names()
-  cols(
-        `Sports Balls` = col_integer())
+  round(trash_df$sports_balls, 1)
   
 trash_df = drop_na(trash_df) 
 
@@ -49,20 +48,26 @@ trash_df
 ```
 
 
-
-
-
-# Section 1
-
-Here's a **code chunk** that samples from 
-a _normal distribution_:
+### Precipitation Data Cleaning
 
 ```{r}
-samp = rnorm(100)
-length(samp)
+precip18_df = 
+  read_excel("data/trash_wheel.xlsx", 
+      sheet = "2018 Precipitation",
+      range = "A2:B14") %>%
+  mutate(year=2018)
+
+precip18_df
+
 ```
 
-# Section 2
 
-I can take the mean of the sample, too!
-The mean is `r mean(samp)`.
+```{r}
+precip19_df = 
+  read_excel("data/trash_wheel.xlsx", 
+      sheet = "2019 Precipitation",
+      range = "A2:B14") %>%
+  mutate(year=2019)
+
+precip19_df
+```
