@@ -12,7 +12,7 @@ library(readxl)
 
 ## Importing data (Problem 0)
 
-I am importing data for Problems 1-2.
+I am importing data for Problems 1-3.
 
 ```{r}
 
@@ -94,4 +94,18 @@ separate(num_df, mon, into = c("year", "month", "day"))
 
 num_df
 ```
+
+## Problem 3
+
+```{r}
+baby_df = 
+  read_csv("data/popular_baby_names.csv") %>%
+   janitor::clean_names() %>%
+  distinct()
+
+
+
+baby_df
+```
+
 
