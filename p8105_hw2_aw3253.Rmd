@@ -59,10 +59,7 @@ precip18_df =
 
 precip18_df
 
-```
 
-
-```{r}
 precip19_df = 
   read_excel("data/trash_wheel.xlsx", 
       sheet = "2019 Precipitation",
@@ -70,4 +67,14 @@ precip19_df =
   mutate(year=2019)
 
 precip19_df
+
+#Combining Datasets
+
+allprecip_df = 
+  full_join(precip18_df, precip19_df)
+
+allprecip_df
+
 ```
+
+
