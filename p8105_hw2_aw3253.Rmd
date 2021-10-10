@@ -88,11 +88,24 @@ Both data sets had about 12 observations for each, 2 in total which shows the pr
 num_df = 
   read_csv("data/pols-month.csv") %>%
    janitor::clean_names()
-
 separate(num_df, mon, into = c("year", "month", "day"))  
 
-
 num_df
+
+
+snp_df = 
+  read_csv("data/snp.csv") %>%
+   janitor::clean_names()
+separate(snp_df, date, into = c("month", "day", "year"))  
+
+snp_df
+
+
+more_df = 
+  read_csv("data/unemployment.csv") %>%
+   janitor::clean_names()
+
+more_df
 ```
 
 ## Problem 3
