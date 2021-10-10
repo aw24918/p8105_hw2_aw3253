@@ -28,7 +28,7 @@ trash_df =
 
 
 
-## Problem 1
+# Problem 1
 
 ```{r}
 trash_df = 
@@ -37,7 +37,7 @@ trash_df =
       range = "A2:N535",
       col_names = TRUE) %>% 
   janitor::clean_names()
-  round(trash_df$sports_balls, 1)
+  round(pull(trash_df, sports_balls))
   
 trash_df = drop_na(trash_df) 
 
@@ -72,9 +72,13 @@ precip19_df
 
 allprecip_df = 
   full_join(precip18_df, precip19_df)
-
+  as.character(pull(allprecip_df, Month))
+  
 allprecip_df
 
 ```
 
+Both data sets had about 12 observations for each, 2 in total which shows the precipitation in inches each month for years 2018 and 2019. The total precipitation in 2018 was 70.33 inches. The median number of sports balls in a dumpster in 2019 is `r median(pull(trash_df, sports_balls))`
 
+
+## Problem 2
