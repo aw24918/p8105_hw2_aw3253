@@ -34,9 +34,15 @@ trash_df =
 trash_df = 
   read_excel("data/trash_wheel.xlsx", 
       sheet = "Mr. Trash Wheel",
-      range = "A1:N535") %>% 
+      range = "A1:N535",
+      ) %>% 
+  janitor::clean_names()
+  cols(
+        `Sports Balls` = col_integer())
+  
+trash_df = drop_na(trash_df) 
 
-janitor::clean_names()
+skimr::skim(trash_df)
 
 trash_df
 
